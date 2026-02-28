@@ -280,9 +280,12 @@ app.post('/api/order', (req, res) => {
 
   const parsed = typeof args === 'string' ? JSON.parse(args) : args;
 
-  const vorname      = parsed.vorname      || 'Unbekannt';
-  const margherita   = Number(parsed.margherita)  || 0;
-  const salame       = Number(parsed.salame)       || 0;
+console.log('📦 Parsed args:', JSON.stringify(parsed, null, 2));
+
+  const vorname      = parsed.vorname || parsed.Vorname || 'Unbekannt';
+  // parseInt fängt Strings ("2"), Zahlen (2) und undefined ab
+  const margherita   = parseInt(parsed.margherita ?? parsed.Margherita ?? 0, 10) || 0;
+  const salame       = parseInt(parsed.salame ?? parsed.Salame ?? 0, 10) || 0;
   const sonderwunsch = parsed.sonderwunsch || '';
 
   const bestellung = {
