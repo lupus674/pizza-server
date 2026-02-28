@@ -1,0 +1,13 @@
+{
+  "name": "pizza-server",
+  "version": "1.0.0",
+  "description": "Pizza Bestellungs-Server für Vapi Voice Agent",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}
